@@ -32,8 +32,7 @@ app.post("/addSchool",async(req,res)=>{
     res.status(201).json({ message: 'School added successfully', school: result.rows[0] });
   } catch (error) {
     console.error('Error adding school:', error);
-    res.status(500).json({ message: 'Internal server error' });
-  }
+    res.status(500).json({ message: 'Internal server error', error: error.message });  }
 });
 
 app.get("/listSchools", async (req, res) => {
